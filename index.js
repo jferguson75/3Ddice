@@ -1,25 +1,27 @@
-var cube = document.querySelector('.cube');
-var rollBtn = document.querySelector('.rollBtn');
-var currentClass = '';
+let cube = document.querySelector('.cube')
+let rollBtn = document.querySelector('.rollBtn')
+let currentClass = ''
 
 function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
 }
 
 function rollDice() {
  var randNum =getRandomInt(1,7)
   console.log(randNum )
-  var showClass = 'show-' + randNum;
+  var showClass = 'show-' + randNum
   console.log(showClass)
   if ( currentClass ) {
-    cube.classList.remove( currentClass );
+    cube.classList.remove( currentClass )
   }
-  cube.classList.add( showClass );
-  currentClass = showClass;
+  cube.classList.add( showClass )
+  currentClass = showClass
 }
 // set initial side
-rollDice();
+rollDice()
 
-rollBtn.addEventListener("click", rollDice);
+rollBtn.addEventListener("click", function() {
+    rollDice()
+})
